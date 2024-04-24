@@ -32,14 +32,16 @@ def analyze_text_file():
         else:
             word_counts[word] = 1
 
-    # Print word counts
-    print("Word Counts:")
-    for word, count in word_counts.items():
+    # Sort word counts by number of occurrences
+    sorted_word_counts = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)
+
+    # Print word and its count
+    print("Words arranged by number of occurrences:")
+    for word, count in sorted_word_counts:
         print(f"\t{word}: {count}")
 
     # Find most frequent word
-    most_frequent_word = max(word_counts, key=word_counts.get)
-    most_frequent_word_count = word_counts[most_frequent_word]
+    most_frequent_word, most_frequent_word_count = sorted_word_counts[0]
 
     # Print most frequent word
     print("\nMost Frequent Word:")
