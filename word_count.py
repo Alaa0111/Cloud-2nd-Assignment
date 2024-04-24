@@ -3,7 +3,7 @@ from nltk.corpus import stopwords
 
 def analyze_text_file():
     
-    # Download stopwords (one-time download)
+    # Download stopwords
     nltk.download('stopwords', quiet=True)
 
     # the path to the text file
@@ -13,7 +13,7 @@ def analyze_text_file():
     with open(file_path, 'r') as file:
         text = file.read()
 
-    # Preprocess text (lowercase, remove punctuation)
+    # words to lowercase, remove punctuation
     def preprocess_text(text):
         words = text.split()
         for i in range(len(words)):
